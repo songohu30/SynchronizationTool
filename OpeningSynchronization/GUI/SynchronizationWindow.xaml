@@ -1,0 +1,51 @@
+﻿<Window x:Class="GUI.SynchronizationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
+        Title="SynchronizationWindow" Height="400" Width="550" Background="WhiteSmoke" MinWidth="450" MinHeight="350">
+    <Grid x:Name="MainGrid" Margin="5" Background="White" Focusable="True" MouseLeftButtonDown="MainGrid_MouseLeftButtonDown">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border CornerRadius="1" BorderThickness="1" BorderBrush="Gray"/>
+        <Border CornerRadius="1" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="Gray"/>
+        <TabControl x:Name="MyTabControl" Grid.Column="1">
+            <TabItem Header="Openings" TabIndex="0">
+                <DataGrid x:Name="DataGridOpenings" SelectionChanged="DataGridOpenings_SelectionChanged" Grid.Column="1" Margin="0" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn IsReadOnly="True" Header="ElementId" Binding="{Binding Path=ElementId}"/>
+                        <DataGridTextColumn IsReadOnly="True" Header="Shape" Binding="{Binding Path=Shape}"/>
+                        <DataGridTextColumn IsReadOnly="True" Header="HostId" Binding="{Binding Path=HostId}"/>
+                        <DataGridTextColumn IsReadOnly="True" Header="Opening Status" Binding="{Binding Path=OpeningStatus}"/>
+                        <DataGridTextColumn IsReadOnly="True" Header="Host Status" Binding="{Binding Path=HostStatus}"/>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Cut Elements" TabIndex="1">
+                <DataGrid x:Name="DataGridHosts" Grid.Column="1" SelectionChanged="DataGridHosts_SelectionChanged" Margin="0" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn IsReadOnly="True" Header="ElementId" Binding="{Binding Path=ElementId}"/>
+                        <DataGridTextColumn IsReadOnly="True" Header="Type" Binding="{Binding Path=HostType}"/>
+                        <DataGridTextColumn IsReadOnly="True" Header="Thickness" Binding="{Binding Path=Thickness}"/>
+                        <DataGridTextColumn IsReadOnly="True" Header="Status" Binding="{Binding Path=HostStatus}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+        <TextBox x:Name="TxtBoxToken" GotFocus="TxtBoxToken_GotFocus" HorizontalAlignment="Left" Foreground="Gray" Height="51" Margin="10,10,0,0" TextWrapping="Wrap" Text="Synchronization token" VerticalAlignment="Top" Width="170"/>
+        <Button x:Name="BtnCheckCloud" Content="Check Cloud Storage" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Width="170" Click="BtnCheckCloud_Click"/>
+        <Button x:Name="BtnUpdateProject" Content="Update Project from Cloud" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top" Width="170" Click="BtnUpdateProject_Click"/>
+        <Button x:Name="BtnCreateCloud" Content="Create New Cloud Resource" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="170" Click="BtnCreateCloud_Click"/>
+        <ComboBox x:Name="RoundTypeComBox" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" Width="170"/>
+        <ComboBox x:Name="RectTypeComBox" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="10,233,0,0" VerticalAlignment="Top" Width="170"/>
+        <Label Content="Round opening type:" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Width="170"/>
+        <Label Content="Rectangular opening type:" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Width="170"/>
+        <Button x:Name="BtnUpdateCloud" Content="Update Cloud from Project" HorizontalAlignment="Left" Margin="10,117,0,0" VerticalAlignment="Top" Width="170" Click="BtnUpdateCloud_Click"/>
+    </Grid>
+</Window>

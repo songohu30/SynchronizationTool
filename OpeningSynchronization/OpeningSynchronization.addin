@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>GTB Openings</Name>
+		<Assembly>OpeningSynchronization.dll</Assembly>
+		<AddInId>38A05371-E093-4321-811D-15C66A849560</AddInId>
+		<FullClassName>OpeningSynchronization.App</FullClassName>
+		<VendorId>GTBE</VendorId>
+		<VendorDescription>GTB Berlin</VendorDescription>
+	</AddIn>
+</RevitAddIns>
